@@ -12,7 +12,7 @@ pipeline {
           }
      }
      steps {
-          sh 'pip install --upgrade setuptools && pip install -r requirements.tx && python tests.py'
+          sh 'pip install --upgrade pip && pip install --upgrade setuptools && pip install -r requirements.tx && python tests.py'
      }
 }
       
