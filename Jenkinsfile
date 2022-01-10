@@ -14,7 +14,7 @@ dockerImage = docker.build registry + ":$BUILD_NUMBER"
 stage('Run container') {
 steps{
 script {
-docker run rmi $dockerImage python test.py
+docker run --rm $dockerImage python test.py
 }
 }
 }
