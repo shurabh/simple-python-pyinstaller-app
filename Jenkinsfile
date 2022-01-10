@@ -5,12 +5,8 @@ pipeline {
     }
     stages {
            stage('test') {
-
-          node {
-               def customImage = docker.build("my-image:${env.BUILD_ID}", "-f Dockerfile") 
-          }
-
      steps {
+          def customImage = docker.build("my-image:${env.BUILD_ID}", "-f Dockerfile") 
           sh 'docker run --rm $customImage python test.py'
      }
 }
