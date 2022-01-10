@@ -8,7 +8,7 @@ pipeline {
      agent {
           any
           {
-               image 'qnib/pytest'
+               image 'python:latest'
           }
      }
      steps {
