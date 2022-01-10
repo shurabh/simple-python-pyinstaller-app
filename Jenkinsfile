@@ -1,4 +1,3 @@
-//tesing
 pipeline {
     agent none
     options {
