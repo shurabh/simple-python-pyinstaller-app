@@ -12,7 +12,7 @@ pipeline {
           }
      }
      steps {
-          sh 'virtualenv venv && . venv/bin/activate && pip install -r requirements.tx && python tests.py'
+          sh 'pip install -r requirements.tx && python tests.py'
      }
 }
       
