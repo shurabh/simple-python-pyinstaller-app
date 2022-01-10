@@ -12,7 +12,7 @@ pipeline {
             }
             steps {
 //                sh 'python -m py_compile sources/add2vals.py sources/calc.py'
-                sh 'pip install -- upgrade pip python -m pip install pandas'
+                sh 'python -m pip install pandas'
                 sh 'python -m py_compile sources/hello.py '
                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
