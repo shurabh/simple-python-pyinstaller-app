@@ -45,8 +45,8 @@ pipeline {
             post {
                 success {
                     archiveArtifacts "${env.BUILD_ID}/sources/dist/add2vals"
-   		    sh "chmod +x sources/dist/add2vals"
-                    sh "sources/dist/add2vals 2 3" 
+   		    sh "ls -ld ${env.BUILD_ID}/sources/dist/add2vals"
+//                    sh "sources/dist/add2vals 2 3" 
                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
                 }
             }
