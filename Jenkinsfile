@@ -6,8 +6,7 @@ pipeline {
     stages {
            stage('test') {
      agent {
-          any
-          {
+          node {
                def customImage = docker.build("my-image:${env.BUILD_ID}", "-f Dockerfile") 
           }
      }
