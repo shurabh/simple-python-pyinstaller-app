@@ -1,17 +1,27 @@
 pipeline {
-    agent none
-    def customImage = docker.build("my-image:${env.BUILD_ID}", "-f Dockerfile") 
-    options {
-        skipStagesAfterUnstable()
-    }
-    stages {
-           stage('test') {
-     steps {
-//          def customImage = docker.build("my-image:${env.BUILD_ID}", "-f Dockerfile") 
-          sh 'docker run --rm $customImage python test.py'
-     }
+environment {
+dockerImage = ''
 }
-      
-      }
-   }
-
+agent any
+stages {
+stage('Building our image') {
+steps{
+script {
+dockerImage = docker.build registry + ":$BUILD_NUMBER"
+}
+}
+}
+stage('Run container') {
+steps{
+script {
+docker run rmi $dockerImage python test.py
+}
+}
+}
+stage('Cleaning up') {
+steps{
+sh "docker rmi $registry:$BUILD_NUMBER"
+}
+}
+}
+}
