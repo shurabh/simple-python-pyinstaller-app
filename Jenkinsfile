@@ -8,11 +8,11 @@ pipeline {
      agent {
           any
           {
-               image 'python:latest'
+               def customImage = docker.build("my-image:${env.BUILD_ID}", "-f Dockerfile") 
           }
      }
      steps {
-          sh 'pip install --upgrade pip && pip install --upgrade setuptools && pip install -r requirements.tx && python tests.py'
+          sh 'docker run --rm $customImage python test.py'
      }
 }
       
