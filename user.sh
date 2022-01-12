@@ -1,4 +1,4 @@
 echo "Enter the user name: "  
-read first_name  
+first_name=$1  
 echo "The User Name is $first_name"  
 echo  
