@@ -11,7 +11,7 @@ pipeline {
 		    echo "${params.username}"
 		    sh'''#!/bin/bash -xe 
 		         sh user.sh 1
-			 //"${params.username}" 
+
 			 '''
             }
         }
