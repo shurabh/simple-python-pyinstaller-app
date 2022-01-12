@@ -9,7 +9,7 @@ pipeline {
         stage('ask') {
             steps {
 		    echo "${params.username}"
-//		sh 'user.sh ${params.username}'
+		    sh 'user.sh "${params.username}"'
             }
         }
         stage('run') {
