@@ -1,11 +1,14 @@
 pipeline {
    agent any
-   parameters([ string(name: 'Host_user', defaultValue: '', description: 'username')])
+	parameters {
+  string defaultValue: '', description: 'username', name: 'username', trim: false
+}
+
     stages {
         stage('ask') {
             steps {
 				sh """
-				sh user.sh Host_user
+				sh user.sh $name
 				"""
             }
         }
