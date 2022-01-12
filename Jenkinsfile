@@ -9,7 +9,7 @@ steps{
 script {
 import jenkins.model.*
 jenkins = Jenkins.instance
-properties([parameters([credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: '', description: '', name: 'username', required: true), credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: '', description: '', name: 'password', required: false)])])
+properties([parameters([string(defaultValue: '', description: '', name: 'username', trim: false), password(defaultValueAsSecret: <object of type hudson.util.Secret>, description: '', name: 'password')])])
 }
 }
 }
