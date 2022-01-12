@@ -10,7 +10,7 @@ pipeline {
             steps {
 		    echo "${params.username}"
 		    sh'''#!/bin/bash -xe 
-		         sh user.sh 1
+		         sh user.sh $username
 
 			 '''
             }
