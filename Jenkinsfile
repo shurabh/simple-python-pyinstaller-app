@@ -1,7 +1,6 @@
 pipeline {
    agent any
-	import jenkins.model.*
-        jenkins = Jenkins.instance
+
 	parameters {
   string defaultValue: '', description: 'username', name: 'username', trim: false
 }
