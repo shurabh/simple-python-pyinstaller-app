@@ -9,7 +9,7 @@ steps{
 script {
 import jenkins.model.*
 jenkins = Jenkins.instance
-properties([parameters([string(defaultValue: '', description: '', name: 'username', trim: false), password(defaultValueAsSecret: <object of type hudson.util.Secret>, description: '', name: 'password')])])
+properties([parameters([string(defaultValue: '', description: '', name: 'username', trim: false), password(defaultValueAsSecret: PASSWORD, description: '', name: 'password')])])
 }
 }
 }
