@@ -5,7 +5,8 @@ pipeline {
         stage('ask') {
             steps {
 				sh """
-				user.sh Host_user
+				sh user.sh Host_user
+				"""
             }
         }
         stage('run') {
