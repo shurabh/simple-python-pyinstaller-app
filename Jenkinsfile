@@ -3,7 +3,7 @@ pipeline {
 
 	parameters {
   string defaultValue: '', description: 'username', name: 'username', trim: false
-  string defaultValue: '', description: 'password', name: 'username', trim: false
+  string defaultValue: '', description: 'password', name: 'password', trim: false
 }
 //	def user = $name
     stages {
