@@ -1,30 +1,27 @@
 pipeline {
-environment {
-dockerImage = ''
-}
-agent any
-stages {
-stage('username passwd') {
-steps{
-script {
-withCredentials([usernamePassword(usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-  // available as an env variable, but will be masked if you try to print it out any which way
-  // note: single quotes prevent Groovy interpolation; expansion is by Bourne Shell, which is what you want
-  sh 'echo $PASSWORD'
-  // also available as a Groovy variable
-  echo USERNAME
-  // or inside double quotes for string interpolation
-  echo "username is $USERNAME"
-}
-
-}
-}
-}
-
-stage('Result') {
-steps{
-sh "echo name: $username"
-}
-}
-}
+    agent {
+        label 'Linux'
+    }
+    stages {
+        stage('ask') {
+            steps {
+                script {
+                    def askpass = input(
+                        message: 'Please enter the password',
+                        parameters: [
+                            password(defaultValue: '',
+                                    description: '',
+                                    name: 'password')],
+                        submitterParameter: 'submitter')
+                    env.MY_USER = askpass.submitter
+                    env.MY_PASSWORD = askpass.password
+                }
+            }
+        }
+        stage('run') {
+            steps {
+                sh("printenv | sort")
+            }
+        }
+    }
 }
