@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('ask') {
             steps {
-//		    echo "${params.username}"
+		    echo "${params.username}"
 		    sh'''#!/bin/bash -xe 
 		         sh user.sh "${params.username}" 
 			 '''
