@@ -1,3 +1,5 @@
 import sys
-arg = sys.argv[1]
-print(arg)
+a = sys.argv[1]
+b = sys.argv[2]
+print(a)
+print(a)
