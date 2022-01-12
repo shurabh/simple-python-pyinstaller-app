@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'Linux'
+        label 'any'
     }
     stages {
         stage('ask') {
