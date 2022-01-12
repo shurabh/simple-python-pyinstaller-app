@@ -11,6 +11,7 @@ pipeline {
 		    echo "${params.username}"
 		    sh'''#!/bin/bash -xe 
 		         sh user.sh $username
+			 python user.py $username
 
 			 '''
             }
