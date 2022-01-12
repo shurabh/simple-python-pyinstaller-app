@@ -1,4 +1,5 @@
 pipeline {
+  properties([parameters([string(defaultValue: 'user', description: 'user', name: 'username', trim: false),  password: hudson.util.Secret.fromString('PASSWORD')])])
 environment {
 dockerImage = ''
 }
@@ -8,8 +9,9 @@ stage('username passwd') {
 steps{
 script {
 //import jenkins.model.*
-jenkins = Jenkins.instance
-properties([parameters([string(defaultValue: 'user', description: 'user', name: 'username', trim: false),  password: hudson.util.Secret.fromString('PASSWORD')])])
+//jenkins = Jenkins.instance
+  echo "hello"
+
 }
 }
 }
