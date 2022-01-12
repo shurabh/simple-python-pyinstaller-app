@@ -1,19 +1,11 @@
 pipeline {
    agent any
+   parameters([ string(name: 'Host_user', defaultValue: '', description: 'username')])
     stages {
         stage('ask') {
             steps {
-                script {
-                    def askpass = input(
-                        message: 'Please enter the password',
-                        parameters: [
-                            password(defaultValue: '',
-                                    description: '',
-                                    name: 'password')],
-                        submitterParameter: 'submitter')
-                    env.MY_USER = askpass.submitter
-                    env.MY_PASSWORD = askpass.password
-                }
+				sh """
+				user.sh Host_user
             }
         }
         stage('run') {
