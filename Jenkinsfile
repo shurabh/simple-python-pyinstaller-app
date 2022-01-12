@@ -3,6 +3,7 @@ pipeline {
 
 	parameters {
   string defaultValue: '', description: 'username', name: 'username', trim: false
+  string defaultValue: '', description: 'password', name: 'username', trim: false
 }
 //	def user = $name
     stages {
@@ -10,8 +11,8 @@ pipeline {
             steps {
 		    echo "${params.username}"
 		    sh'''#!/bin/bash -xe 
-		         sh user.sh $username
-			 python user.py $username
+		         sh user.sh $username $password
+			 python user.py $username $password
 
 			 '''
             }
