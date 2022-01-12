@@ -4,13 +4,11 @@ pipeline {
 	parameters {
   string defaultValue: '', description: 'username', name: 'username', trim: false
 }
-	def user = $name
+//	def user = $name
     stages {
         stage('ask') {
             steps {
-				sh """
-				sh user.sh $user
-				"""
+		sh 'user.sh ${params.username}'
             }
         }
         stage('run') {
