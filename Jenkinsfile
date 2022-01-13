@@ -22,5 +22,10 @@ pipeline {
                 sh("printenv | sort")
             }
         }
+	    stage('clean-up') {
+		    steps {
+			    cleanWs()
+		    }
+	    }
     }
 }
