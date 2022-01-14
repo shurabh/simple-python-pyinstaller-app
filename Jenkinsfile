@@ -11,7 +11,7 @@ pipeline {
         stage('ask') {
             steps {
 		    echo "${params.username}"
-		    
+		    withCredentials([usernamePassword(credentialsId: '14-01-2022', usernameVariable: 'username', passwordVariable: 'password')]) {
 		    sh'''#!/bin/bash -xe 
 		         sh user.sh '$username' '$password'
 			 python user.py $username $password
@@ -19,7 +19,7 @@ pipeline {
 			 ls -lrt "$PWD"/sources
 
 			 '''
-            
+		    }
 	    }
         }
         stage('run') {
