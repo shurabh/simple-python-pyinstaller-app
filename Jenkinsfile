@@ -5,10 +5,7 @@ pipeline {
   string defaultValue: '', description: 'username', name: 'username', trim: false
   string defaultValue: '', description: 'password', name: 'password', trim: false
 }
-	    environment {
-        User_name     = credentials('$username')
-        Pass_Word = credentials('$password')
-    }
+
 //	def user = $name
     stages {
         stage('ask') {
@@ -16,7 +13,7 @@ pipeline {
 		    echo "${params.username}"
 		    
 		    sh'''#!/bin/bash -xe 
-		         sh user.sh $User_name $Pass_Word
+		         sh user.sh '$username' '$password'
 			 python user.py $username $password
 			 echo $WORKSPACE
 			 ls -lrt "$PWD"/sources
