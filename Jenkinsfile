@@ -14,7 +14,7 @@ pipeline {
 		         sh user.sh $username $password
 			 python user.py $username $password
 			 echo $WORKSPACE
-			 ls -lrt $PWD
+			 ls -lrt "$PWD"/sources
 
 			 '''
             }
