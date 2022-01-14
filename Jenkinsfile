@@ -3,7 +3,7 @@ pipeline {
 
 	parameters {
   string defaultValue: '', description: 'username', name: 'username', trim: false
-  password defaultValue: '', description: 'password', name: 'password', trim: false
+  password defaultValue: '', description: 'password', name: 'password'
 }
 
 //	def user = $name
