@@ -13,6 +13,7 @@ pipeline {
 		    sh'''#!/bin/bash -xe 
 		         sh user.sh $username $password
 			 python user.py $username $password
+			 echo $WORKSPACE
 
 			 '''
             }
