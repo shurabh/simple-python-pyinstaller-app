@@ -6,8 +6,8 @@ pipeline {
   string defaultValue: '', description: 'password', name: 'password', trim: false
 }
 	    environment {
-        User_name     = credentials('&username')
-        Pass_Word = credentials('&password')
+        User_name     = credentials('$username')
+        Pass_Word = credentials('$password')
     }
 //	def user = $name
     stages {
