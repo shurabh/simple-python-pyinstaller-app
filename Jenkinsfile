@@ -10,7 +10,7 @@ pipeline {
         stage('ask') {
             steps {
 		    echo "${params.username}"
-		    withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'password')]) {
+		    withCredentials([usernameColonPassword(credentialsId: 'jenkins_study', variable: 'password')]) {
 		    sh'''#!/bin/bash -xe 
 		         set +x
 		         sh user.sh $username $password
