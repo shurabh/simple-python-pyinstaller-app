@@ -13,7 +13,7 @@ pipeline {
 		    echo "${params.username}"
 		    withCredentials([usernamePassword(credentialsId: '14-01-2022', usernameVariable: 'username', passwordVariable: 'password')]) {
 		    sh'''#!/bin/bash -xe 
-		         sh user.sh '$username' '$password'
+		         sh user.sh $username $password
 			 python user.py $username $password
 			 echo $WORKSPACE
 			 ls -lrt "$PWD"/sources
