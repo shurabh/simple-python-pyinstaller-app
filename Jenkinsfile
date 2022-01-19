@@ -1,12 +1,3 @@
-pipeline {
-   agent any
-
-	parameters {
-  string defaultValue: '', description: 'username', name: 'username', trim: false
-  password defaultValue: '', description: 'password', name: 'password'
-}
-
-//	def user = $name
     stages {
         stage('ask') {
             steps {
@@ -23,6 +14,7 @@ pipeline {
 		    }
 	    }
         }
+	stage('To see the magic') {
         parallel {
 		stage('run') {
             steps {
@@ -37,6 +29,7 @@ pipeline {
             }
         }
 		   }
+		}
 	    stage('clean-up') {
 		    steps {
 			    deleteDir()
