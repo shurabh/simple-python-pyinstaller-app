@@ -32,7 +32,7 @@ pipeline {
         }
 	            stage('new run') {
             steps {
-                sh("echo "Hello from parallel job")
+                sh("echo Hello from parallel job ")
 		sh("sleep 20s")
             }
         }
