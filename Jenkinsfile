@@ -23,11 +23,20 @@ pipeline {
 		    }
 	    }
         }
-        stage('run') {
+        parallel {
+		stage('run') {
             steps {
                 sh("printenv | sort")
+		sh("sleep 20s")
             }
         }
+	            stage('new run') {
+            steps {
+                sh("echo "Hello from parallel job")
+		sh("sleep 20s")
+            }
+        }
+		   }
 	    stage('clean-up') {
 		    steps {
 			    deleteDir()
